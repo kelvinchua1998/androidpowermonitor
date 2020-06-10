@@ -1,4 +1,4 @@
-package com.example.speedtester;
+package com.example.powermonitor;
 
 import org.junit.Test;
 

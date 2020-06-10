@@ -1,4 +1,4 @@
-package com.example.speedtester;
+package com.example.powermonitor;
 
 import android.content.Context;
 

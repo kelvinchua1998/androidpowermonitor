@@ -1,4 +1,4 @@
-package com.example.speedtester;
+package com.example.powermonitor.building_list;
 
 
 import androidx.annotation.NonNull;
@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +16,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.powermonitor.GlobalApplication;
+import com.example.powermonitor.LoadingDialogue;
+import com.example.powermonitor.R;
+import com.example.powermonitor.level_list.TowerActivity;
+import com.example.powermonitor.login.loginActivity;
+import com.example.powermonitor.ssid_list.ssidActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -376,6 +382,7 @@ public class BuildingActivity extends AppCompatActivity {
                             buildingnumAP = new int[]{AnumAP[0], BnumAP[0]};
                             loadingDialogue.dismissDialog();
                             Log.d("data","received" );
+
                             BuildingAdapter.setbuildingAP(buildingnumAP, warningList, criticalList, downloadList, uploadList);
                             refreshLayout.setRefreshing(false);
                         }

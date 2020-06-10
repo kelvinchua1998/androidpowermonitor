@@ -1,4 +1,4 @@
-package com.example.speedtester;
+package com.example.powermonitor;
 
 import androidx.appcompat.app.AppCompatActivity;
 

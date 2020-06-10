@@ -1,14 +1,12 @@
-package com.example.speedtester;
+package com.example.powermonitor;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -20,8 +18,6 @@ import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
-import com.jjoe64.graphview.LegendRenderer;
-import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -30,7 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import okhttp3.Call;
@@ -46,7 +42,16 @@ public class showApDetails extends AppCompatActivity {
     JSONObject singleAP;
     SwipeRefreshLayout refreshLayout;
     String ssid,password,os,hardware,mac,raspi,description, site,building,level , ip, name;
-    int ping,download,upload,jitter,runtime,status,device_id,ignore,quality,timestamp;
+    int ping;
+    int download;
+    int upload;
+    int jitter;
+    int runtime;
+    int status;
+    int device_id;
+    int ignore;
+    int quality;
+    long timestamp;
     GraphView graphView;
     int deviceID;
     GlobalApplication.Config config = GlobalApplication.getconfiq();
@@ -82,7 +87,7 @@ public class showApDetails extends AppCompatActivity {
 
 //        ipTextView = (TextView)findViewById(R.id.showIpTextView);
 //        passwordTextView = (TextView)findViewById(R.id.passwordTextView);
-        runtimeTextView = (TextView)findViewById(R.id.runtimessidTextView);
+//        runtimeTextView = (TextView)findViewById(R.id.runtimessidTextView);
 //        device_idTextView = (TextView)findViewById(R.id.device_idTextView);
 //        osTextView = (TextView)findViewById(R.id.osTextView);
 //        hardwareTextView = (TextView)findViewById(R.id.hardwareTextView);
@@ -131,7 +136,7 @@ public class showApDetails extends AppCompatActivity {
             download = singleAP.getJSONObject("last_speedtest").getInt("download");
             upload = singleAP.getJSONObject("last_speedtest").getInt("upload");
             jitter = singleAP.getJSONObject("last_speedtest").getInt("jitter");
-            timestamp = singleAP.getJSONObject("last_speedtest").getInt("timestamp");
+            timestamp = singleAP.getJSONObject("last_speedtest").getLong("timestamp");
 
 //            ignore = singleAP.getInt("ignore");
             status = singleAP.getInt("status");
@@ -150,7 +155,7 @@ public class showApDetails extends AppCompatActivity {
 //        ipTextView.setText("ip: "+ip);
 //        passwordTextView.setText("password: "+password);
         String convertedtime = convertRuntime(runtime);
-        runtimeTextView.setText(convertedtime);
+//        runtimeTextView.setText(convertedtime);
 //        device_idTextView.setText("device_id: "+device_id);
 //        osTextView.setText("os: "+os);
 //        hardwareTextView.setText("hardware: "+hardware);
@@ -175,9 +180,16 @@ public class showApDetails extends AppCompatActivity {
         uploadTextView.setText(upload+" Mb/s");
         jitterTextView.setText(jitter+" ms");
 
-        Timestamp ts=new Timestamp(timestamp);
-        Date date = ts;
-        timestampTextView.setText(date.toString().substring(0,19));
+//        Timestamp ts=new Timestamp(timestamp);
+//        Date date = ts;
+
+        Date date=new Date(timestamp);
+
+        String pattern = "dd-MM-yyyy HH:mm:ss";
+        SimpleDateFormat simpleDateFormat =
+                new SimpleDateFormat(pattern);
+//
+        timestampTextView.setText(simpleDateFormat.format(date));
 
         Drawable mDivider = ContextCompat.getDrawable(this, R.drawable.divider);
 //        divider1.setImageDrawable(mDivider);

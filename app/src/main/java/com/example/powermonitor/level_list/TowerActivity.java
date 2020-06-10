@@ -1,4 +1,4 @@
-package com.example.speedtester;
+package com.example.powermonitor.level_list;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -12,6 +12,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.powermonitor.GlobalApplication;
+import com.example.powermonitor.R;
+import com.example.powermonitor.ssid_list.ssidActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
