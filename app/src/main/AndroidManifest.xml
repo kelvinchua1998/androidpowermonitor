@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.example.powermonitor.GlobalApplication"
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,34 +15,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.powermonitor.buildinglistcardview.buildinglist">
-
-        </activity>
-        <activity android:name="com.example.powermonitor.login.SaveUserActivity" />
-        <activity android:name="com.example.powermonitor.login.activationActivity"></activity>
-        <activity android:name="com.example.powermonitor.homePageActivity" />
-        <activity
-            android:name="com.example.powermonitor.login.verifyActivity"
-            android:noHistory="true" />
-        <activity
-            android:name="com.example.powermonitor.login.phoneOTPactivity"
-            android:noHistory="true" />
-        <activity
-            android:name="com.example.powermonitor.login.loginActivity"
-            android:noHistory="true">
+        <activity android:name=".SummaryPage"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".buildinglistcardview.buildinglist"></activity>
+        <activity android:name=".login.SaveUserActivity" />
+        <activity android:name=".login.activationActivity" />
+        <activity android:name=".homePageActivity" />
+        <activity
+            android:name=".login.verifyActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".login.phoneOTPactivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".login.loginActivity"
+            android:noHistory="true">
 
         </activity>
-        <activity android:name="com.example.powermonitor.showApDetails" />
-        <activity android:name="com.example.powermonitor.ssid_list.ssidActivity" />
-        <activity android:name="com.example.powermonitor.level_list.TowerActivity" />
-        <activity android:name="com.example.powermonitor.building_list.BuildingActivity" >
-
-        </activity>
+        <activity android:name=".showApDetails" />
+        <activity android:name=".ssid_list.ssidActivity" />
+        <activity android:name=".level_list.TowerActivity" />
+        <activity android:name=".building_list.BuildingActivity"></activity>
     </application>
 
 </manifest>

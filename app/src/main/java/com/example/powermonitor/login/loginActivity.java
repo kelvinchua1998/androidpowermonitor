@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.powermonitor.building_list.BuildingActivity;
+
 import com.example.powermonitor.GlobalApplication;
 import com.example.powermonitor.LoadingDialogue;
 import com.example.powermonitor.R;
@@ -62,11 +62,11 @@ public class loginActivity extends AppCompatActivity {
         Boolean islogged = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isLogged", false);
 // if the user is logged in it will go to the building activity
-        if(islogged){
-            startActivity(new Intent(loginActivity.this, BuildingActivity.class));
-            Toast.makeText(loginActivity.this, "user already logged in", Toast.LENGTH_LONG)
-                    .show();
-        }
+//        if(islogged){
+//            startActivity(new Intent(loginActivity.this, BuildingActivity.class));
+//            Toast.makeText(loginActivity.this, "user already logged in", Toast.LENGTH_LONG)
+//                    .show();
+//        }
 //check whether the app for first run
         Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
                 .getBoolean("isFirstRun", true);
@@ -260,14 +260,14 @@ public class loginActivity extends AppCompatActivity {
                         if(jsonresponse.getInt("errorCode") == 0){
                             loadingDialogue.dismissDialog();
 
-                            Intent loginSuccessful = new Intent(loginActivity.this, BuildingActivity.class);
-
-                            user.phonenumber = phoneNumber;
-                            user.userToken = jsonresponse.getJSONObject("data").getString("token");
-
-                            startActivity(loginSuccessful);
-                            finish();
-                            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isLogged", true).apply();
+//                            Intent loginSuccessful = new Intent(loginActivity.this, BuildingActivity.class);
+//
+//                            user.phonenumber = phoneNumber;
+//                            user.userToken = jsonresponse.getJSONObject("data").getString("token");
+//
+//                            startActivity(loginSuccessful);
+//                            finish();
+//                            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isLogged", true).apply();
                         }
                         else if(jsonresponse.getInt("errorCode") == 6){
                             loadingDialogue.dismissDialog();

@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.chaos.view.PinView;
-import com.example.powermonitor.building_list.BuildingActivity;
+
 import com.example.powermonitor.GlobalApplication;
 import com.example.powermonitor.LoadingDialogue;
 import com.example.powermonitor.R;
@@ -287,15 +287,15 @@ public class verifyActivity extends AppCompatActivity {
                     try {
                         jsonresponse = new JSONObject(myresponse);
                         if(jsonresponse.getInt("errorCode") == 0){
-                            Intent verifysuccessful = new Intent(verifyActivity.this, BuildingActivity.class);
-
-                            user.phonenumber = phoneNumber;
-                            user.userToken = jsonresponse.getJSONObject("data").getString("token");
-
-
-                            startActivity(verifysuccessful);
-                            finish();
-                            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isLogged", true).commit();
+//                            Intent verifysuccessful = new Intent(verifyActivity.this, BuildingActivity.class);
+//
+//                            user.phonenumber = phoneNumber;
+//                            user.userToken = jsonresponse.getJSONObject("data").getString("token");
+//
+//
+//                            startActivity(verifysuccessful);
+//                            finish();
+//                            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("isLogged", true).commit();
                         }
                         else if(jsonresponse.getInt("errorCode") == 13){
                             runOnUiThread(new Runnable() {
